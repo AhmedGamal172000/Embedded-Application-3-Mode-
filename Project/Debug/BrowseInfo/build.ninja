@@ -1,0 +1,90 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++"C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+
+
+
+#Build steps
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file "E$:\Introduction$ to$ Embedded\Project\DIO.c" -xcl_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.xcl" -macro_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "E$:\Introduction$ to$ Embedded\Project\DIO.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "E$:\Introduction$ to$ Embedded\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.tmp"
+  rspfile_name = E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.xcl.rsp
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file "E$:\Introduction$ to$ Embedded\Project\keypad.c" -xcl_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.xcl" -macro_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "E$:\Introduction$ to$ Embedded\Project\keypad.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "E$:\Introduction$ to$ Embedded\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.tmp"
+  rspfile_name = E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.xcl.rsp
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.xcl : COMPILER_XCL 
+  xclcommand = -source_file "E$:\Introduction$ to$ Embedded\Project\LCD.c" -xcl_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.xcl" -macro_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "E$:\Introduction$ to$ Embedded\Project\LCD.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "E$:\Introduction$ to$ Embedded\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.tmp"
+  rspfile_name = E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.xcl.rsp
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "E$:\Introduction$ to$ Embedded\Project\main.c" -xcl_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.xcl" -macro_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "E$:\Introduction$ to$ Embedded\Project\main.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "E$:\Introduction$ to$ Embedded\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.tmp"
+  rspfile_name = E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.xcl.rsp
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "E$:\Introduction$ to$ Embedded\Project\startup_ewarm.c" -xcl_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "E$:\Introduction$ to$ Embedded\Project\startup_ewarm.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "E$:\Introduction$ to$ Embedded\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.pbi : INDEXER E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.xcl |  $
+E$:\Introduction$ to$ Embedded\Project\DIO.c
+  flags = "-out=E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.pbi" -f "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.xcl"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.pbi : INDEXER E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.xcl |  $
+E$:\Introduction$ to$ Embedded\Project\keypad.c
+  flags = "-out=E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.pbi" -f "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.xcl"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.pbi : INDEXER E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.xcl |  $
+E$:\Introduction$ to$ Embedded\Project\LCD.c
+  flags = "-out=E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.pbi" -f "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.xcl"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.pbi : INDEXER E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.xcl |  $
+E$:\Introduction$ to$ Embedded\Project\main.c
+  flags = "-out=E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.pbi" -f "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.xcl"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl |  $
+E$:\Introduction$ to$ Embedded\Project\startup_ewarm.c
+  flags = "-out=E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi" -f "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbw : MAKEBROWSE E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbd
+  flags = "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbd" -output "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbw"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part0.pbi : PDBLINK E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.pbi |  $
+E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.pbi
+  flags = -M "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part0.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\DIO.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\keypad.pbi"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part1.pbi : PDBLINK E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.pbi |  $
+E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.pbi
+  flags = -M "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part1.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\LCD.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\main.pbi"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part2.pbi : PDBLINK E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part2.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\startup_ewarm.pbi"
+
+build E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbd : PDBLINK E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part0.pbi |  $
+E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part1.pbi $
+E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part2.pbi
+  flags = -M "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20.pbd" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part0.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part1.pbi" "E$:\Introduction$ to$ Embedded\Project\Debug\BrowseInfo\Project_Team20_part2.pbi"
+
